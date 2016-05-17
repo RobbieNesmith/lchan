@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ thread.title }}{% endblock %}
+
+{% block content %}
+  <div class="jumbotron mytitle">
+    <h1>{{ thread.title }}</h1>
+  </div>
+  {{ super() }}
+  <ul class="breadcrumb">
+    <li><a href="/boards">Home</a></li>
+    <li><a href="/boards/{{ board.route }}">{{ board.title }}</a></li>
+    <li class="active">{{ thread.title }}</li>
+  </ul>
+
+  <div class="row">
+    <div id="newpost" class="col-sm-6">
+      <h2>Create a new post</h2>
+      {{ form.title(placeholder="title", class="titlebox") }}<br />
+      {{ form.message(placeholder="message", class="messagebox") }}<br />
+      <span id="errormessage" class="myerrormessage"></span><br />
+      <button class="postbutton" onclick="createPost({{ thread.id }}, document.getElementById('title').value,document.getElementById('message').value)">New Post</button>
+    </div>
+  </div>
+
+  <ul id="postcontainer" class="list-group">
+  {% for post in posts %}
+    <li class="list-group-item">
+      <h3>{{ post.title }} - <small>({{ post.user }})</small></h3><br />
+      {{ post.message }}
+    </li>
+  {% endfor %}
+  </ul>
+
+  
+{% endblock %}

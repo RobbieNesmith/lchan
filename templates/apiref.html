@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}L-Chan{% endblock %}
+
+{% block content %}
+  <div class="jumbotron mytitle">
+    <h1>API Reference</h1>
+  </div>
+  {{ super() }}
+  <ul class="breadcrumb">
+  <li><a href="/boards">Home</a></li>
+  <li class="active">API Reference</li>
+  </ul>
+  
+  <p>
+    <h2>/api/add/board</h2>
+    Adds a board at a given route.<br />
+    JSON Body Parameters: {"title" : title_of_board, "route", route_of_board}<br />
+    JSON Response: {"error" : error_message} (error is blank if there is no error message)
+  </p>
+  <p>
+    <h2>/api/add/thread</h2>
+    Adds a thread to the given board.<br />
+    JSON Body Parameters: {"board" : board_id_to_post, "title" : title_of_thread, "message", content} (message is content of first post)<br />
+    JSON Response: {"error" : error_message, "username" : user_name} (error is blank if there is no error message, username is the current logged in user or Anonymous if nobody is logged in)
+  </p>
+  <p>
+    <h2>/api/add/post</h2>
+    Adds a post to the given thread.<br />
+    JSON Body Parameters: {"thread" : thread_id_to_post, "title" : title_of_post, "message", content}<br />
+    JSON Response: {"error" : error_message, "username" : user_name} (error is blank if there is no error message, username is the current logged in user or Anonymous if nobody is logged in)
+  </p>
+  <p>
+    <h2>/api/get/boardid</h2>
+    Gets the id of the board corresponding to the given route.<br />
+    JSON Body Parameters: {"route" : route_of_board}<br />
+    JSON Response: {"id" : id_of_board}
+  </p>
+  <p>
+    <h2>/api/get/boards</h2>
+    Gets a list of all of the boards.<br />
+    JSON Response: [{"title" : board_title, "route" : board_route, "numthreads" : board_number_of_threads, "datemod" : board_date_modified}, ...]
+  </p>
+  <p>
+    <h2>/api/get/threads</h2>
+    Gets a list of threads in a given board.<br />
+    JSON Body Parameters: {"board" : board_id}<br />
+    JSON Response: [{"id" : thread_id, "title" : thread_title, "board" : thread_board_id, "numposts" : thread_number_of_posts, "datemod" : thread_date_modified}, ...]
+  </p>
+  <p>
+    <h2>/api/get/posts</h2>
+    Gets a list of posts in a given thread.<br />
+    JSON Body Parameters: {"thread" : thread_id}<br />
+    JSON Response: [{"id" : post_id, "user" : post_user, "thread" : post_thread_id, "title" : post_title, "message" : post_message, "datemod" : post_date_modified}, ...]
+  </p>
+{% endblock %}

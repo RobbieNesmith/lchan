@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+<head>
+{% block header %}
+  <title>{% block title %}{% endblock %}</title>
+  {% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script type="text/javascript" src="/static/stuff.js"></script>
+  {% endblock %}
+{% endblock %}
+</head>
+
+{% block content %}
+{{ super() }}
+  {% block links %}
+    <ul class="pagination">
+      <li><a href="/login">Log in</a></li>
+      <li><a href="/create_account">Register</a></li>
+      <li><a href="/logout">Log out</a></li>
+      <li><a href="/api">API reference</a></li>
+    </ul>
+  {% endblock %}
+{% endblock %}

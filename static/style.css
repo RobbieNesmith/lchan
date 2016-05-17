@@ -1,0 +1,60 @@
+body
+{
+  background: #f0f9ff; /* Old browsers */
+  background: -moz-linear-gradient(top, #a1dbff 0%, #cbebff 25%, #f0f9ff 50%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a1dbff 0%,#cbebff 25%,#f0f9ff 50%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a1dbff 0%,#cbebff 25%,#f0f9ff 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1dbff', endColorstr='#f0f9ff',GradientType=0 ); /* IE6-9 */
+  background-repeat: no-repeat;
+  height:100vh;
+  overflow-x: hidden;
+}
+textarea
+{
+  resize:vertical;
+}
+.messagebox
+{
+  border: solid 1px lightgrey;
+  box-shadow:5px 5px 0 rgba(0,0,0,0.5);
+  margin-left: 10px;
+  width:calc(100% - 20px);
+}
+.myerrormessage
+{
+  color: red;
+}
+.mylistitem
+{
+  min-height: 3em;
+}
+.mytitle
+{
+  border-bottom: solid 4vmin #a1dbff;
+  text-align:center;
+}
+.newpost
+{
+  background-color: #a1dbff;
+}
+.postbutton
+{
+  background-color: #a1dbff;
+  border: none;
+  box-shadow:5px 5px 0 rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+  margin-left: 10px;
+  transition: background-color .2s;
+}
+.postbutton:hover
+{
+  background-color: white;
+}
+.titlebox
+{
+  border: solid 1px lightgrey;
+  box-shadow:5px 5px 0 rgba(0,0,0,0.5);
+  margin-left: 10px;
+  margin-top: 10px;
+  width:calc(100% - 20px);
+}
